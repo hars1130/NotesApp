@@ -1,0 +1,26 @@
+.action-bar{
+    display: flex;
+    margin-bottom: 10px;
+}
+.action-bar button{
+    margin: 2px;
+}
+.action-bar input{
+    margin:2px;
+}
+
+.container{
+    display: flex;
+}
+
+app-notes-list{
+    padding: 5px 10px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+
+app-note-detail{
+    padding: 5px 10px 5px 0;
+    flex: 1;
+    border: 1px solid black;
+}
