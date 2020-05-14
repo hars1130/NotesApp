@@ -1,9 +1,14 @@
 <div class="action-bar">
-  <button>Create</button>
-  <button>Delete</button>
-  <input type="text" placeholder="Search">
+  <div class="menu" (click)="toggleNoteList()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <button (click)=createNote()>Create</button>
+  <button (click)=deleteNote()>Delete</button>
+  <input type="text" placeholder="Search" id="userSearch" [(ngModel)]="userSearch" (keyup)="onSearch()">
 </div>
 <div class="container">
-<app-notes-list></app-notes-list>  
+<app-notes-list *ngIf="isNoteListOpen" [notes]="notes"></app-notes-list>  
 <app-note-detail></app-note-detail>
 </div>
