@@ -1,5 +1,12 @@
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
 textarea{
     width: 90%;
-    height: 50px;
+    height: 90%;
+    background: #fff8dc;
+    outline: none;
     border: none;
 }
