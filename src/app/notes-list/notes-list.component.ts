@@ -11,12 +11,10 @@ export class NotesListComponent implements OnInit {
   constructor(public notesService: NotesService) { }
 
   @Input() notes: any[];
-  selectedNote;
   ngOnInit() {
   }
 
-  OnNoteClick(note){
-    this.selectedNote = note;
+  onNoteClick(note){
     this.notesService.selectNote(note);
   }
 

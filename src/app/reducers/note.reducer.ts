@@ -31,8 +31,7 @@ export function reducer(
     case fromNote.ActionTypes.CreateNote: {
       return {
         ...state,
-        data: [action.payload.note, ...state.data],
-        selectedNote : state.data.length>0 ? state.data[0] : undefined
+        data: [action.payload.note, ...state.data]
       };
     }
 

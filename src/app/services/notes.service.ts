@@ -70,10 +70,15 @@ export class NotesService {
     };
 
     this.store.dispatch(new NoteActions.CreateNote({ note: note }));
+    this.selectNote(note);
   }
 
   selectNote(note): void {
     this.store.dispatch(new NoteActions.SelectNote({ note: note }));
+  }
+
+  getSelectedNote(){
+    return this.selectedNote;
   }
 
   deleteNote(note): void {

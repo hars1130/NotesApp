@@ -1,5 +1,5 @@
 <div class="note-list-container">
-  <div *ngFor="let note of notes" [ngClass]="{'note-card': true, 'selected': note==selectedNote}" (click)="OnNoteClick(note)">
+  <div *ngFor="let note of notes" [ngClass]="{'note-card': true, 'selected': note==(notesService.getSelectedNote() | async)}" (click)="onNoteClick(note)">
     <label>{{note.timeStamp}}</label>
     <p>
       {{note.content ? note.content : 'New Note'}}
