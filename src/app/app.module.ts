@@ -7,6 +7,7 @@ import { NoteDetailComponent } from './note-detail/note-detail.component';
 import { HomeComponent } from './home/home.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { reducers, metaReducers } from './reducers';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [],
