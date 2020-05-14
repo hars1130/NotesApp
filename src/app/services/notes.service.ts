@@ -15,6 +15,8 @@ export class NotesService {
   public persistedState = [];
   public loaded: boolean = false;
   public selectedNote: Observable<any>;
+  //unique id to create unique key
+  public uniqueId = "sdsb6h53-fg73-b33-6721-k529ig460535";
 
   constructor(private store: Store<AppState>) {
     this.notes = this.store.select(getAllNotes);
@@ -30,7 +32,7 @@ export class NotesService {
         if (localStorage.length > 0) {
           // We have items in localStroage
           // Get the notes that were saved into storage
-          let notes = JSON.parse(localStorage.getItem("notes"));
+          let notes = JSON.parse(localStorage.getItem("notes"+this.uniqueId));
           // Only set this.notes to the returned value if there were values stored
           if (notes != null) {
             this.persistedState = notes;
@@ -50,7 +52,7 @@ export class NotesService {
       notes = notesList;
     });
     // Save the current array of notes to storage
-    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notes"+this.uniqueId, JSON.stringify(notes));
     notesSubscription.unsubscribe();
   }
 
