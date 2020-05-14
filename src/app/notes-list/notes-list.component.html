@@ -1,8 +1,8 @@
-<div>
-  <div *ngFor="let note of notes" class="note-card">
-    <label>{{note.title}}</label>
+<div class="note-list-container">
+  <div *ngFor="let note of notes" [ngClass]="{'note-card': true, 'selected': note==selectedNote}" (click)="OnNoteClick(note)">
+    <label>{{note.timeStamp}}</label>
     <p>
-      {{note.content}}
+      {{note.content ? note.content : 'New Note'}}
     </p>
   </div>
 </div>

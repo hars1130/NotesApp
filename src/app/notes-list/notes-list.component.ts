@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public notesService: NotesService) { }
 
-  notes = [];
-
+  @Input() notes: any[];
+  selectedNote;
   ngOnInit() {
-    this.notes=[{title: "first",
-      content: "hello"},
-      {title: "second",
-        content: "world"}];
+  }
+
+  OnNoteClick(note){
+    this.selectedNote = note;
+    this.notesService.selectNote(note);
   }
 
 }
