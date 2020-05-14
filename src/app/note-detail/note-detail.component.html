@@ -1,3 +1,3 @@
-<textarea>
-  Note-detail
+<label *ngIf="note">{{note.timeStamp}}</label>
+<textarea *ngIf="note" placeholder="Add note here" [(ngModel)]="note.content" (ngModelChange)="onChange()">
 </textarea>
