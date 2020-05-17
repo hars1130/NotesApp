@@ -9,9 +9,9 @@ A handy app which helps you keep your notes.
 
 **Preview:**
 * mobile:
-(src/assets/iphone x.JPG)
+* ![image of iphone view](src/assets/iphone.jpg)
 * pc:
-(src/assets/pc.JPG)
+* ![image of pc view](src/assets/pc.JPG)
 
 **To run on local machine:**
 * Download the project and open its directory in the terminal.
