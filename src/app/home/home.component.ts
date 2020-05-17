@@ -46,14 +46,15 @@ export class HomeComponent implements OnInit {
   }
 
   deleteNote(){
-    if(confirm( "Do you really want to delete?")){
-    let deletesubscription = this.notesService.selectedNote.pipe(first()).subscribe(selectedNote =>{
-      if(selectedNote)
-      this.notesService.deleteNote(selectedNote);
+  
+    let deletesubscription = this.notesService.selectedNote.pipe(first()).subscribe(selectedNote =>{      
+      if(selectedNote && confirm( "Do you really want to delete?")){
+        this.notesService.deleteNote();
+        this.notesService.save();
+      }
     });
     deletesubscription.unsubscribe();
-    this.notesService.save();
-    }
+    
   }
 
   toggleNoteList(){

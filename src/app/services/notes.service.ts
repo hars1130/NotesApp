@@ -73,6 +73,16 @@ export class NotesService {
     this.selectNote(note);
   }
 
+  editNote(content): void {
+    let date = new Date();
+    let note = {
+      timeStamp: date.toLocaleString(),
+      content: content
+    };
+
+    this.store.dispatch(new NoteActions.EditNote({ note: note }));
+  }
+
   selectNote(note): void {
     this.store.dispatch(new NoteActions.SelectNote({ note: note }));
   }
@@ -81,7 +91,7 @@ export class NotesService {
     return this.selectedNote;
   }
 
-  deleteNote(note): void {
-    this.store.dispatch(new NoteActions.DeleteNote({ note: note }));
+  deleteNote(): void {
+    this.store.dispatch(new NoteActions.DeleteNote());
   }
 }

@@ -16,12 +16,12 @@ export class NoteDetailComponent implements OnInit {
 
   ngOnInit() {
     this.notesService.selectedNote.subscribe(selectedNote =>{
-      this.note = selectedNote;
+        this.note = Object.assign({},selectedNote);
     });
   }
 
   onChange(){
-    this.note.timeStamp = new Date().toLocaleString();
+    this.notesService.editNote(this.note.content);
     this.notesService.save();
   }
 

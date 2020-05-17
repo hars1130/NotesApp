@@ -35,7 +35,17 @@ export function reducer(
       };
     }
 
-    case fromNote.ActionTypes.SelectNote: {
+    case fromNote.ActionTypes.EditNote: {
+      const editedNote = Object.assign({}, action.payload.note);
+        return {
+          ...state,
+          ...state.data.splice(state.data.indexOf(state.selectedNote), 1),
+          data: [editedNote, ...state.data],
+          selectedNote: editedNote
+        };
+      }
+
+      case fromNote.ActionTypes.SelectNote: {
         return {
           ...state,
           selectedNote: action.payload.note
@@ -43,11 +53,11 @@ export function reducer(
       }
 
     case fromNote.ActionTypes.DeleteNote: {
-      return {
+      return state.selectedNote ? {
         ...state,
-        ...state.data.splice(state.data.indexOf(action.payload.note), 1),
+        ...state.data.splice(state.data.indexOf(state.selectedNote), 1),
         selectedNote : state.data.length>0 ? state.data[0] : undefined
-      };
+      } : state;
     }
 
     default: {
